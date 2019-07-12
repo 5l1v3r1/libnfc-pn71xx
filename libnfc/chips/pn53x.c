@@ -2392,6 +2392,7 @@ pn53x_target_receive_bytes(struct nfc_device *pnd, uint8_t *pbtRx, const size_t 
           }
         }
         // NO BREAK
+      FALL_THROUGH;
       case NMT_JEWEL:
       case NMT_ISO14443B:
       case NMT_ISO14443BI:
@@ -2497,6 +2498,7 @@ pn53x_target_send_bytes(struct nfc_device *pnd, const uint8_t *pbtTx, const size
           }
         }
         // NO BREAK
+      FALL_THROUGH;
       case NMT_JEWEL:
       case NMT_ISO14443B:
       case NMT_ISO14443BI:

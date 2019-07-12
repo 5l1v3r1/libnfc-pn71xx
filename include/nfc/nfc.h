@@ -219,6 +219,11 @@ NFC_EXPORT int str_nfc_target(char **buf, const nfc_target *pnt, bool verbose);
  */
 #define NFC_ECHIP			-90
 
+#if defined(__GNUC__) && __GNUC__ >= 7
+ #define FALL_THROUGH __attribute__ ((fallthrough))
+#else
+ #define FALL_THROUGH ((void)0)
+#endif /* __GNUC__ >= 7 */
 
 #  ifdef __cplusplus
 }
