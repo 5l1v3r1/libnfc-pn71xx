@@ -290,6 +290,9 @@ pn71xx_initiator_select_passive_target(struct nfc_device *pnd,
                                       const uint8_t *pbtInitData, const size_t szInitData,
                                       nfc_target *pnt)
 {
+    (void)(pbtInitData);
+    (void)(szInitData);
+ 
     if (pnd == NULL) return NFC_EIO;
 
 	log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_DEBUG, "select_passive_target");
@@ -509,6 +512,9 @@ pn71xx_get_supported_baud_rate(nfc_device *pnd, const nfc_mode mode, const nfc_m
 static int
 pn71xx_set_property_bool(struct nfc_device *pnd, const nfc_property property, const bool bEnable)
 {
+    (void)(property);
+    (void)(bEnable);
+
     if (pnd == NULL) return NFC_EIO;
 	return NFC_SUCCESS;
 }
@@ -516,6 +522,9 @@ pn71xx_set_property_bool(struct nfc_device *pnd, const nfc_property property, co
 static int
 pn71xx_set_property_int(struct nfc_device *pnd, const nfc_property property, const int value)
 {
+    (void)(property);
+    (void)(value);
+
     if (pnd == NULL) return NFC_EIO;
 	return NFC_SUCCESS;
 }
