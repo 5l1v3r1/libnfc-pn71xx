@@ -109,6 +109,14 @@ pn71xx_open(const nfc_context *context, const nfc_connstring connstring)
 	strcpy(pnd->name, "pn71xx-device");
 	strcpy(pnd->connstring, connstring);
 
+	if (!nfcManager_isNfcActive()) {
+            if (nfcManager_doInitialize() != 0) {
+                log_put(LOG_GROUP, LOG_CATEGORY, NFC_LOG_PRIORITY_ERROR, "cannot initialize nfcManager");
+                return NULL;
+            }
+
+        }
+
 	TagCB.onTagArrival = onTagArrival;
 	TagCB.onTagDeparture = onTagDeparture;
 	nfcManager_registerTagCallback(&TagCB);
